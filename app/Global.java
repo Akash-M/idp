@@ -1,24 +1,28 @@
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.ApplicationContext;
-import play.GlobalSettings;
-import play.Application;
-
+import com.fasterxml.jackson.databind.ObjectMapper;
 import configs.AppConfig;
-import configs.DataConfig;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import play.Application;
+import play.GlobalSettings;
 import play.Logger;
+import play.Play;
+import play.libs.Json;
 
+/**
+ * Created by saeed on 9/March/15 AD.
+ */
 public class Global extends GlobalSettings {
 
-    private ApplicationContext ctx;
+    protected ApplicationContext applicationContext;
 
     @Override
     public void onStart(Application app) {
-        ctx = new AnnotationConfigApplicationContext(AppConfig.class, DataConfig.class);
+        applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
     }
 
     @Override
-    public <A> A getControllerInstance(Class<A> clazz) {
-        return ctx.getBean(clazz);
+    public final <A> A getControllerInstance(Class<A> clazz) {
+        return applicationContext.getBean(clazz);
     }
 
 }

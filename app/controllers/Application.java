@@ -1,33 +1,26 @@
 package controllers;
 
+import models.User;
+import play.libs.F;
+import play.mvc.*;
 
-import models.Bar;
-import org.springframework.beans.factory.annotation.Autowired;
-import play.data.Form;
-import play.libs.Json;
-import play.mvc.Result;
-import services.BarService;
-import views.html.index;
+import play.mvc.Controller;
+import services.UserService;
+import views.html.*;
 
-@org.springframework.stereotype.Controller
-public class Application {
+import javax.inject.Inject;
+import javax.inject.Named;
 
-    @Autowired
-    private BarService barService;
+
+@Named
+public class Application extends Controller {
+
+    @Inject
+    private UserService userService;
 
     public Result index() {
-        return play.mvc.Controller.ok(index.render(Form.form(Bar.class)));
+        userService.addUser(new User("Prateek", "Bagrecha", "Sumermal"));
+        return ok("insert user Prateek successfully!");
     }
 
-    public Result addBar() {
-        Form<Bar> form = Form.form(Bar.class).bindFromRequest();
-        Bar bar = form.get();
-        barService.addBar(bar);
-        return play.mvc.Controller.redirect(controllers.routes.Application.index());
-    }
-
-    public Result listBars() {
-        return play.mvc.Controller.ok(Json.toJson(barService.getAllBars()));
-    }
-    
 }
