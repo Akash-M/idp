@@ -18,11 +18,6 @@ public class Application extends Controller {
     @Inject
     private UserService userService;
 
-    public Result index() {
-        userService.addUser(new User("Prateek", "Bagrecha", "Sumermal"));
-        return ok("insert user Prateek successfully!");
-    }
-
     public Result home() {
         return ok(views.html.home.render());
     }
