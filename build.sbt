@@ -13,6 +13,8 @@ libraryDependencies ++= Seq(
   "org.springframework" % "spring-test" % "4.0.4.RELEASE" % "test"
 )
 
+offline:=true
+
 fork in Test := false
 
 fork in run := true

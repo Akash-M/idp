@@ -23,4 +23,12 @@ public class Application extends Controller {
         return ok("insert user Prateek successfully!");
     }
 
+    public Result home() {
+        return ok(views.html.home.render());
+    }
+
+    public Result carousel() {
+        return ok(views.html.carousel.render());
+    }
+
 }
