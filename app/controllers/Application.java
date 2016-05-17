@@ -10,6 +10,7 @@ import play.mvc.Controller;
 
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.util.List;
 
 
 @Named
@@ -19,7 +20,7 @@ public class Application extends Controller {
     private CentralStorageService csService;
 
     public Result getCentralStorage() {
-        CentralStorage cs = csService.getCSCapacities(1);
+        List<CentralStorage> cs = csService.getCSCapacities();
         JsonNode csJson = Json.toJson(cs);
         return ok(csJson);
         /*return ok("Awesome");*/

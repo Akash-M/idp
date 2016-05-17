@@ -5,6 +5,7 @@ import models.CentralStorage;
 
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.util.List;
 
 /**
  * Created by prate_000 on 16-05-2016.
@@ -16,8 +17,8 @@ public class CentralStorageServiceImpl implements CentralStorageService {
     private CentralStorageDAO csRepo;
 
     @Override
-    public CentralStorage getCSCapacities(Integer id){
-        CentralStorage cs = csRepo.findById(id);
+    public List<CentralStorage> getCSCapacities(){
+        List<CentralStorage> cs = csRepo.findAll();
         return cs;
     }
 

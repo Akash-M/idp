@@ -20,8 +20,8 @@ public class CSController extends Controller {
     private CentralStorageService csService;
 
 
-    public Result getCSCapacities(int id) {
-        return ok(csService.getCSCapacities(id).toString());
+    public Result getCSCapacities() {
+        return ok(csService.getCSCapacities().toString());
     }
 
 }
