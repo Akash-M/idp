@@ -15,28 +15,22 @@ import javax.inject.Named;
 @Named
 public class Application extends Controller {
 
-    /*@Inject
-    private UserService userService;
-
-    @Inject
-    private UserDAO userRepo;*/
-
     @Inject
     private CentralStorageService csService;
 
-   /* public Result index() {
-        *//*userService.addUser(new User("Akash", "", "Manjunath"));
-        User saeed = userRepo.findByFirstName("Saeed");
-        return ok("First Name:" + saeed.getFirstName() +"\nLast Name:" + saeed.getLastName() + "\n");*//*
-        return ok(csService.getCSCapacities(1).toString());
-    }*/
-
-
-    public Result index() {
+    public Result getCentralStorage() {
         CentralStorage cs = csService.getCSCapacities(1);
         JsonNode csJson = Json.toJson(cs);
         return ok(csJson);
         /*return ok("Awesome");*/
+    }
+
+    public Result home() {
+        return ok(views.html.home.render());
+    }
+
+    public Result carousel() {
+        return ok(views.html.carousel.render());
     }
 
 }
