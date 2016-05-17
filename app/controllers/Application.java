@@ -1,9 +1,11 @@
 package controllers;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import models.Carousel;
 import models.CentralStorage;
 import play.libs.Json;
 import play.mvc.*;
+import services.CarouselService;
 import services.CentralStorageService;
 
 import play.mvc.Controller;
@@ -19,8 +21,18 @@ public class Application extends Controller {
     @Inject
     private CentralStorageService csService;
 
+    @Inject
+    private CarouselService carouselService;
+
     public Result getCentralStorage() {
         List<CentralStorage> cs = csService.getCSCapacities();
+        JsonNode csJson = Json.toJson(cs);
+        return ok(csJson);
+        /*return ok("Awesome");*/
+    }
+
+    public Result getCarouselList() {
+        List<Carousel> cs = carouselService.getCarousels();
         JsonNode csJson = Json.toJson(cs);
         return ok(csJson);
         /*return ok("Awesome");*/

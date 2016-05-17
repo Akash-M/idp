@@ -4,10 +4,13 @@ import daos.CarouselDAO;
 import models.Carousel;
 
 import javax.inject.Inject;
+import javax.inject.Named;
+import java.util.List;
 
 /**
  * Created by prate_000 on 16-05-2016.
  */
+@Named
 public class CarouselServiceImpl implements CarouselService {
 
     @Inject
@@ -26,5 +29,9 @@ public class CarouselServiceImpl implements CarouselService {
     public int getCurrentCapacity(int carouselId){
         Carousel carousel = carouselDAO.findById(carouselId);
         return carousel.getCurrentCapacity();
+    }
+
+    public List<Carousel> getCarousels(){
+        return carouselDAO.findAll();
     }
 }

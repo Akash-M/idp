@@ -2,6 +2,8 @@ package services;
 
 import models.Carousel;
 
+import java.util.List;
+
 /**
  * Created by prate_000 on 16-05-2016.
  */
@@ -9,5 +11,5 @@ public interface CarouselService {
     void addCarousel(Carousel carousel);
     int getMaxCapacity(int carouselId);
     int getCurrentCapacity(int carouselId);
-    //int getCurrentStatus(int carouselId);
+    List<Carousel> getCarousels();
 }
