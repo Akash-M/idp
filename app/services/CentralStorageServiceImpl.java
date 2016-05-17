@@ -1,8 +1,7 @@
 package services;
 
-import daos.CentralStorageRepository;
+import daos.CentralStorageDAO;
 import models.CentralStorage;
-import play.api.mvc.Result;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -14,7 +13,7 @@ import javax.inject.Named;
 public class CentralStorageServiceImpl implements CentralStorageService {
 
     @Inject
-    private CentralStorageRepository csRepo;
+    private CentralStorageDAO csRepo;
 
     @Override
     public CentralStorage getCSCapacities(Integer id){

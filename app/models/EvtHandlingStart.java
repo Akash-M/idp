@@ -9,7 +9,7 @@ import java.util.List;
  * Created by prate_000 on 16-05-2016.
  */
 @Document(collection = "eventHandlingStart")
-public class EventHandlingStart {
+public class EvtHandlingStart {
 
     @Id
     private int time;

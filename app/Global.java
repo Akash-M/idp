@@ -1,13 +1,8 @@
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sun.xml.internal.bind.annotation.OverrideAnnotationOf;
 import configs.AppConfig;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import play.Application;
 import play.GlobalSettings;
-import play.Logger;
-import play.Play;
-import play.libs.Json;
 
 /**
  * Created by saeed on 9/March/15 AD.

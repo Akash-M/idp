@@ -6,12 +6,13 @@ import org.springframework.data.mongodb.core.mapping.Document;
 /**
  * Created by prate_000 on 16-05-2016.
  */
-@Document(collection = "eventStorageDepletionStart")
-public class EventStorageDepletionStart {
+@Document(collection = "eventBaggageArrival")
+public class EvtBaggageArrival {
 
     @Id
     private int time;
     private int flight_id;
+    private int bags;
 
     public int getTime() {
         return time;
@@ -27,5 +28,13 @@ public class EventStorageDepletionStart {
 
     public void setFlight_id(int flight_id) {
         this.flight_id = flight_id;
+    }
+
+    public int getBags() {
+        return bags;
+    }
+
+    public void setBags(int bags) {
+        this.bags = bags;
     }
 }

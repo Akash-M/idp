@@ -6,13 +6,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 /**
  * Created by prate_000 on 16-05-2016.
  */
-@Document(collection = "eventBaggageArrival")
-public class EventBaggageArrival {
-
+@Document(collection = "eventHandlingEnd")
+public class EvtHandlingEnd {
     @Id
     private int time;
     private int flight_id;
-    private int bags;
+    private int worker_id;
 
     public int getTime() {
         return time;
@@ -30,11 +29,11 @@ public class EventBaggageArrival {
         this.flight_id = flight_id;
     }
 
-    public int getBags() {
-        return bags;
+    public int getWorker_id() {
+        return worker_id;
     }
 
-    public void setBags(int bags) {
-        this.bags = bags;
+    public void setWorker_id(int worker_id) {
+        this.worker_id = worker_id;
     }
 }

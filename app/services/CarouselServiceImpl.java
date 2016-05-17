@@ -1,8 +1,7 @@
 package services;
 
-import daos.CarouselRepository;
+import daos.CarouselDAO;
 import models.Carousel;
-import org.springframework.data.mongodb.core.index.Indexed;
 
 import javax.inject.Inject;
 
@@ -12,20 +11,20 @@ import javax.inject.Inject;
 public class CarouselServiceImpl implements CarouselService {
 
     @Inject
-    private CarouselRepository carouselRepository;
+    private CarouselDAO carouselDAO;
 
     @Override
     public void addCarousel(Carousel carousel) {
-        carouselRepository.save(carousel);
+        carouselDAO.save(carousel);
     }
 
     public int getMaxCapacity(int carouselId){
-        Carousel carousel = carouselRepository.findById(carouselId);
+        Carousel carousel = carouselDAO.findById(carouselId);
         return carousel.getMaxCapacity();
     }
 
     public int getCurrentCapacity(int carouselId){
-        Carousel carousel = carouselRepository.findById(carouselId);
+        Carousel carousel = carouselDAO.findById(carouselId);
         return carousel.getCurrentCapacity();
     }
 }

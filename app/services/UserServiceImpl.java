@@ -1,7 +1,7 @@
 package services;
 
 
-import daos.UserRepository;
+import daos.UserDAO;
 import models.User;
 
 import javax.inject.Inject;
@@ -13,10 +13,10 @@ import javax.inject.Named;
 public class UserServiceImpl implements UserService {
 
     @Inject
-    private UserRepository userRepository;
+    private UserDAO userDAO;
 
     @Override
     public void addUser(User user) {
-        userRepository.save(user);
+        userDAO.save(user);
     }
 }
