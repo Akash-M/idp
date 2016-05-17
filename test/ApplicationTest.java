@@ -41,4 +41,8 @@ public class ApplicationTest {
         assertTrue(contentAsString(html).contains("Your new application is ready."));
     }
 
+    @Test
+    public void testGetCapacities() throws Exception {
+
+    }
 }
