@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import models.Carousel;
 import models.CentralStorage;
+import models.Flight;
 import play.libs.Json;
 import play.mvc.*;
 import services.*;
@@ -74,6 +75,17 @@ public class Application extends Controller {
         carouselObjectNodeForMerging = carouselObjectNodeForMerging.put("No_of_Workers", workingStationsCount);
         carouselObjectNodeForMerging = carouselObjectNodeForMerging.put("Ground_Handler_Name", groundHandlerName);
         return ok(carouselObjectNodeForMerging);
+    }
+
+    public Result getFlightList(){
+        List<Flight> allFlightsList = flightService.getAllFlights();
+        JsonNode allFlightsListJson = Json.toJson(allFlightsList);
+        return ok(allFlightsListJson);
+    }
+
+    public Result getFlightDetailsById(int id){
+        JsonNode flightJsonNode = flightService.getFlightDetailsById(id);
+        return ok(flightJsonNode);
     }
 
 }

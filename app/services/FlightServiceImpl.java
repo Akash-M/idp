@@ -25,7 +25,13 @@ public class FlightServiceImpl implements FlightService {
     public JsonNode getWorkersList(int flightId){
         Flight flight = flightDAO.findById(flightId);
         JsonNode flightJson = Json.toJson(flight);
-        JsonNode workerNode = flightJson.get("worker_id") ;
-        return workerNode;
+        JsonNode workerJsonNode = flightJson.get("worker_id") ;
+        return workerJsonNode;
+    }
+
+    public JsonNode getFlightDetailsById(int flightId){
+        Flight flight = flightDAO.findById(flightId);
+        JsonNode flightJsonNode = Json.toJson(flight);
+        return flightJsonNode;
     }
 }
