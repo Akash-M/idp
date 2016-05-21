@@ -17,7 +17,7 @@ public class Flight {
     private int requiredNumberOfParkingStations;
     private int expectedEndOfBaggageHandling;
     private int carousel_id;
-    private List<Integer> worker_ids;
+    private List<Integer> worker_id;
     private List<Integer> workstations;
 
     public String getId() {
@@ -52,12 +52,12 @@ public class Flight {
         this.carousel_id = carousel_id;
     }
 
-    public List<Integer> getWorker_ids() {
-        return worker_ids;
+    public List<Integer> getWorker_id() {
+        return worker_id;
     }
 
-    public void setWorker_ids(List<Integer> worker_ids) {
-        this.worker_ids = worker_ids;
+    public void setWorker_id(List<Integer> worker_id) {
+        this.worker_id = worker_id;
     }
 
     public List<Integer> getWorkstations() {

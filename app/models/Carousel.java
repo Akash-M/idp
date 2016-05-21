@@ -20,7 +20,7 @@ public class Carousel {
     private int parkingPositions;
     private int maxCapacity;
     private int currentCapacity;
-    private List<Integer> flight_ids;
+    private List<Integer> flight_id;
     private List<Integer> workingStationsAssigned;
 
     public int getId() {
@@ -71,12 +71,12 @@ public class Carousel {
         this.currentCapacity = currentCapacity;
     }
 
-    public List<Integer> getFlight_ids() {
-        return flight_ids;
+    public List<Integer> getFlight_id() {
+        return flight_id;
     }
 
-    public void setFlight_ids(List<Integer> flight_ids) {
-        this.flight_ids = flight_ids;
+    public void setFlight_id(List<Integer> flight_id) {
+        this.flight_id = flight_id;
     }
 
     public List<Integer> getWorkingStationsAssigned() {

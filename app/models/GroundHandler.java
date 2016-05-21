@@ -11,7 +11,7 @@ public class GroundHandler {
 
     @Id
     private int id;
-    private String name;
+    private String _name;
 
     public int getId() {
         return id;
@@ -22,10 +22,10 @@ public class GroundHandler {
     }
 
     public String getName() {
-        return name;
+        return _name;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this._name = name;
     }
 }

@@ -2,7 +2,6 @@ package services;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import models.Carousel;
-
 import java.util.List;
 
 /**
@@ -13,5 +12,7 @@ public interface CarouselService {
     int getMaxCapacity(int carouselId);
     int getCurrentCapacity(int carouselId);
     List<Carousel> getCarousels();
-    int countWorkStations(int id);
+    Carousel findById(int id);
+    int countWorkStations(int carouselId);
+    JsonNode getFlightList(int carouselId);
 }
