@@ -1,10 +1,20 @@
 package services;
 
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import daos.CarouselDAO;
 import models.Carousel;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
+import play.api.mvc.Result;
+import play.libs.Json;
 
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -34,4 +44,12 @@ public class CarouselServiceImpl implements CarouselService {
     public List<Carousel> getCarousels(){
         return carouselDAO.findAll();
     }
+
+    public int countWorkStations(int id){
+        Carousel carousel = carouselDAO.findById(id);
+        JsonNode csJson = Json.toJson(carousel);
+        ArrayNode arrayNode = (ArrayNode) csJson.get("workingStationsAssigned") ;
+        return arrayNode.size();
+    }
 }
+

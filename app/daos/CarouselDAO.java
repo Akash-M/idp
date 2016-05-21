@@ -1,6 +1,7 @@
 package daos;
 
 import models.Carousel;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;

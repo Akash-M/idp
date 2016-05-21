@@ -38,6 +38,10 @@ public class Application extends Controller {
         /*return ok("Awesome");*/
     }
 
+    public Result getWorkStationsCount(){
+        return ok(carouselService.countWorkStations(1)+"\n");
+    }
+
     public Result home() {
         return ok(views.html.home.render());
     }
