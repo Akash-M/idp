@@ -7,11 +7,10 @@ GET     /                                                @controllers.Applicatio
 # carousel Page
 GET     /carousel                                        @controllers.Application.carousel()
 
-
 GET     /api/v1/getCarouselDetailsById/:id               @controllers.Application.getCarouselDetailsById(id: Int)
 GET     /api/v1/centralStorage                           @controllers.Application.getCentralStorage
 GET     /api/v1/getCarouselsList                         @controllers.Application.getCarouselList
-GET     /api/vi/getFlightsDetailsById/:id                @controllers.Application.getFlightDetailsById(id : Int)
+GET     /api/v1/getFlightsDetailsById/:id                @controllers.Application.getFlightDetailsById(id : Int)
 GET     /api/v1/getsFlightsList                          @controllers.Application.getFlightList
 
 
