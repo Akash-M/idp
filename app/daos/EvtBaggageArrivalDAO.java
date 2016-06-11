@@ -11,4 +11,7 @@ import java.util.List;
 public interface EvtBaggageArrivalDAO extends MongoRepository<EvtBaggageArrival, Integer>{
     List<EvtBaggageArrival> findAll();
     List<EvtBaggageArrival> findByTime(int time);
+    //List<EvtBaggageArrival> findByTimeOrderByFlightId(int time);
+    List<EvtBaggageArrival> findByFlightId(int flightId);
+    List<EvtBaggageArrival> findByFlightIdAndTime(int flight_id, int time);
 }

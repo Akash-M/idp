@@ -9,5 +9,7 @@ import java.util.List;
  */
 public interface EvtHandlingStartService {
     List<EvtHandlingStart> getEvtHandlingStartList();
-    List<EvtHandlingStart> getEvtHandlingStartByTime();
+    List<EvtHandlingStart> getEvtHandlingStartByTime(int time);
+    List<EvtHandlingStart> getEvtHandlingStartByFlightId(int flight_id);
+    List<EvtHandlingStart> getEvtHandlingStartByCarouselId(int carousel_id);
 }

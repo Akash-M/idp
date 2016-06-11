@@ -9,5 +9,6 @@ import java.util.List;
  */
 public interface EvtHandlingEndService {
     List<EvtHandlingEnd> getEvtHandlingEndList();
-    List<EvtHandlingEnd> getEvtHandlingEndByTime();
+    List<EvtHandlingEnd> getEvtHandlingEndByTime(int time);
+    List<EvtHandlingEnd> getEvtHandlingEndByFlightId(int flight_id);
 }

@@ -10,4 +10,6 @@ import java.util.List;
 public interface EvtBaggageArrivalService {
     List<EvtBaggageArrival> getEvtBaggageArrivalList();
     List<EvtBaggageArrival> getEvtBaggageArrivalByTime(int time);
+    List<EvtBaggageArrival> getEvtBaggageArrivalByFlightId(int flight_id);
+    List<EvtBaggageArrival> getEvtBaggageArrivalByFlightIdAndTime(int flight_id, int time);
 }

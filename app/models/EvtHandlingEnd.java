@@ -2,16 +2,21 @@ package models;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 /**
  * Created by prate_000 on 16-05-2016.
  */
 @Document(collection = "eventHandlingEnd")
 public class EvtHandlingEnd {
-    @Id
+    @Field("_time")
     private int time;
-    private int flight_id;
-    private int worker_id;
+
+    @Field("flight_id")
+    private int flightId;
+
+    @Field("worker_id")
+    private int workerId;
 
     public int getTime() {
         return time;
@@ -21,19 +26,19 @@ public class EvtHandlingEnd {
         this.time = time;
     }
 
-    public int getFlight_id() {
-        return flight_id;
+    public int getFlightid() {
+        return flightId;
     }
 
-    public void setFlight_id(int flight_id) {
-        this.flight_id = flight_id;
+    public void setFlightid(int flight_id) {
+        this.flightId = flight_id;
     }
 
-    public int getWorker_id() {
-        return worker_id;
+    public int getWorkerid() {
+        return workerId;
     }
 
-    public void setWorker_id(int worker_id) {
-        this.worker_id = worker_id;
+    public void setWorkerid(int worker_id) {
+        this.workerId = worker_id;
     }
 }

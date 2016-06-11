@@ -13,7 +13,11 @@ GET     /api/v1/getCarouselsList                         @controllers.Applicatio
 GET     /api/v1/getFlightsDetailsById/:id                @controllers.Application.getFlightDetailsById(id : Int)
 GET     /api/v1/getsFlightsList                          @controllers.Application.getFlightList
 GET     /api/v1/getAllCarouselsId                        @controllers.Application.getAllCarouselsId
-
+GET     /api/v1/getEvtBaggageArrivalByFlightId           @controllers.Application.getEvtBaggageArrivalByFlightId
+GET     /api/v1/getEvtHandlingEndByFlightId              @controllers.Application.getEvtHandlingEndByFlightId
+GET     /api/v1/getEvtBaggageArrivalByTime               @controllers.Application.getEvtBaggageArrivalByTime
+GET     /api/v1/getAllEvts                               @controllers.Application.getAllEvts
+GET     /api/v1/getAllCarouselEvents/:id                 @controllers.Application.getAllCarouselEvents(id: Int)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

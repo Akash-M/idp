@@ -2,6 +2,7 @@ package models;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.List;
 
@@ -11,10 +12,16 @@ import java.util.List;
 @Document(collection = "eventHandlingStart")
 public class EvtHandlingStart {
 
-    @Id
+    @Field("_time")
     private int time;
-    private int carousel_id;
-    private int flight_id;
+
+    @Field("carousel_id")
+    private int carouselId;
+
+    @Field("flight_id")
+    private int flightId;
+
+    @Field("workingstations")
     private List<Integer> workingStations;
 
     public int getTime() {
@@ -25,27 +32,27 @@ public class EvtHandlingStart {
         this.time = time;
     }
 
-    public int getCarousel_id() {
-        return carousel_id;
+    public int getCarouselid() {
+        return carouselId;
     }
 
-    public void setCarousel_id(int carousel_id) {
-        this.carousel_id = carousel_id;
+    public void setCarouselid(int carousel_id) {
+        this.carouselId = carousel_id;
     }
 
-    public int getFlight_id() {
-        return flight_id;
+    public int getFlightid() {
+        return flightId;
     }
 
-    public void setFlight_id(int flight_id) {
-        this.flight_id = flight_id;
+    public void setFlightid(int flight_id) {
+        this.flightId = flight_id;
     }
 
-    public List<Integer> getWorkingStations() {
+    public List<Integer> getWorkingstations() {
         return workingStations;
     }
 
-    public void setWorkingStations(List<Integer> workingStations) {
+    public void setWorkingstations(List<Integer> workingStations) {
         this.workingStations = workingStations;
     }
 }

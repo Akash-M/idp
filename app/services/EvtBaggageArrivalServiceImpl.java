@@ -4,11 +4,13 @@ import daos.EvtBaggageArrivalDAO;
 import models.EvtBaggageArrival;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 import java.util.List;
 
 /**
  * Created by prate_000 on 30-05-2016.
  */
+@Named
 public class EvtBaggageArrivalServiceImpl implements EvtBaggageArrivalService{
 
     @Inject
@@ -22,5 +24,14 @@ public class EvtBaggageArrivalServiceImpl implements EvtBaggageArrivalService{
     @Override
     public List<EvtBaggageArrival> getEvtBaggageArrivalList() {
         return evtBaggageArrivalDAO.findAll();
+    }
+
+    public List<EvtBaggageArrival> getEvtBaggageArrivalByFlightId(int flightId){
+        return evtBaggageArrivalDAO.findByFlightId(flightId);
+    }
+
+    @Override
+    public List<EvtBaggageArrival> getEvtBaggageArrivalByFlightIdAndTime(int flight_id, int time) {
+        return evtBaggageArrivalDAO.findByFlightIdAndTime(flight_id, time);
     }
 }
