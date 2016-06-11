@@ -2,9 +2,15 @@ package controllers;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.mongodb.BasicDBList;
 import models.Carousel;
 import models.CentralStorage;
 import models.Flight;
+import org.bson.BSONObject;
+import org.bson.BasicBSONObject;
+import org.bson.types.BasicBSONList;
+import org.springframework.data.domain.Page;
+import org.springframework.data.mongodb.core.mapping.Document;
 import play.libs.Json;
 import play.mvc.*;
 import services.*;
@@ -13,6 +19,7 @@ import play.mvc.Controller;
 
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -45,11 +52,8 @@ public class Application extends Controller {
         List<Carousel> cs = carouselService.getCarousels();
         JsonNode csJson = Json.toJson(cs);
         return ok(csJson);
+        /*Need to convert to Key-value pair JSON by adding key "Carousels"*/
         /*return ok("Awesome");*/
-    }
-
-    public Result getWorkStationsCount(){
-        return ok(carouselService.countWorkStations(1)+"\n");
     }
 
     public Result home() {
@@ -74,6 +78,7 @@ public class Application extends Controller {
         ObjectNode carouselObjectNodeForMerging = ((ObjectNode) carouselJson);
         carouselObjectNodeForMerging = carouselObjectNodeForMerging.put("No_of_Workers", workingStationsCount);
         carouselObjectNodeForMerging = carouselObjectNodeForMerging.put("Ground_Handler_Name", groundHandlerName);
+
         return ok(carouselObjectNodeForMerging);
     }
 
@@ -81,6 +86,7 @@ public class Application extends Controller {
         List<Flight> allFlightsList = flightService.getAllFlights();
         JsonNode allFlightsListJson = Json.toJson(allFlightsList);
         return ok(allFlightsListJson);
+        /*Need to convert to Key-value pair JSON by adding key "Flights"*/
     }
 
     public Result getFlightDetailsById(int id){
@@ -88,4 +94,15 @@ public class Application extends Controller {
         return ok(flightJsonNode);
     }
 
+    public Result getAllCarouselsId(){
+        List<Integer> carouselsId = carouselService.getAllCarouselsId();
+        Collections.sort(carouselsId);
+
+        BasicDBList carouselsIdList = new BasicDBList();
+        carouselsIdList.addAll(carouselsId);
+        BasicBSONObject bsonObject = new BasicBSONObject();
+        bsonObject.put("Carousel_ids", carouselsIdList);
+        JsonNode carouselsIdJson = Json.toJson(bsonObject);
+        return ok(carouselsIdJson);
+    }
 }

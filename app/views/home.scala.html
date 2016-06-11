@@ -160,18 +160,16 @@
                 "url": "/api/v1/getCarouselsList",
                 "dataSrc": ""
             },
-            "fnRowCallback": function( nRow, aData, iDisplayIndex ) {
-                    alert(aData);
-                    $('td:eq(1)', nRow).html('<a href="api/v1/getCarouselDetailsById/' + aData[1] + '">' +
+            "fnRowCallback": function( nRow, aData) {
+                    console.log(aData);
+                    /*$('td:eq(1)', nRow).html('<a href="api/v1/getCarouselDetailsById/' + aData[1] + '">' +
                             aData[1] + '</a>');
-                    return nRow;
+                    return nRow;*/
+                    window.localStorage.setItem("selectedCarouselId",aData.id);
+                    window.location.href = "/carousel";
             },
             "columns": [
-                {"data": "id","orderable": "false",
-                    /*"render": function ( data, type, row, meta ) {
-                        return "<a href='/api/v1/getCarouselDetailsById/" + id + "'>" + data + '</a>';
-                    }*/
-                },
+                {"data": "id","orderable": "false"},
                 {"data": "xCoordinate","orderable": "false"},
                 {"data": "yCoordinate","orderable": "false"},
                 {"data": "parkingPositions","orderable": "false"},
@@ -181,16 +179,6 @@
                 {"data": "workingStationsAssigned","orderable": "false"}
             ]});
             setInterval(function() { allCarousels.ajax.reload(); }, 5000);
-
-            $("tbody > tr").click(function(){
-
-                var id = $(this).children().first().text();
-                var href = $(this).attr('data-href')+'/'+id;
-
-                console.log(href);
-                alert(href);
-            });
-
         } );
     </script>
 

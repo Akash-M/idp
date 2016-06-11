@@ -13,7 +13,7 @@ public class Carousel {
 
 
     @Id
-    private int id;
+    private Integer _id;
 
     private int xCoordinate;
     private int yCoordinate;
@@ -23,12 +23,12 @@ public class Carousel {
     private List<Integer> flight_id;
     private List<Integer> workingStationsAssigned;
 
-    public int getId() {
-        return id ;
+    public Integer getId() {
+        return _id ;
     }
 
-    public void setId(int id) {
-         this.id = id;
+    public void setId(Integer id) {
+         this._id = id;
     }
 
     public int getxCoordinate() {

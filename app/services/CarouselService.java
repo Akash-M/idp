@@ -2,6 +2,8 @@ package services;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import models.Carousel;
+import org.springframework.data.domain.Page;
+
 import java.util.List;
 
 /**
@@ -15,4 +17,5 @@ public interface CarouselService {
     Carousel findById(int id);
     int countWorkStations(int carouselId);
     JsonNode getFlightList(int carouselId);
+    List<Integer> getAllCarouselsId();
 }

@@ -130,6 +130,8 @@
 
   <script>
         $(document).ready(function() {
+          console.log("inside carousel");
+          console.log(window.localStorage.getItem("selectedCarouselId"));
           var centralStorage;
           centralStorage = $('#centralStorageTable').DataTable( {
             bFilter: false,
@@ -162,8 +164,8 @@
             },
             "columns": [
               {"data": "id","orderable": "false",
-                "render": function ( data, type, row, meta ) {
-                  return "<a href='url?=" + runbookID + "'>" + data + '</a>';}},
+                /*"render": function ( data, type, row, meta ) {
+                  return "<a href='url?=" + runbookID + "'>" + data + '</a>';}*/},
               {"data": "xCoordinate","orderable": "false"},
               {"data": "yCoordinate","orderable": "false"},
               {"data": "parkingPositions","orderable": "false"},

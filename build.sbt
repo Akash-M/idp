@@ -17,4 +17,4 @@ offline:=true
 
 fork in Test := false
 
-fork in run := true
+fork in run := false

@@ -12,6 +12,7 @@ GET     /api/v1/centralStorage                           @controllers.Applicatio
 GET     /api/v1/getCarouselsList                         @controllers.Application.getCarouselList
 GET     /api/v1/getFlightsDetailsById/:id                @controllers.Application.getFlightDetailsById(id : Int)
 GET     /api/v1/getsFlightsList                          @controllers.Application.getFlightList
+GET     /api/v1/getAllCarouselsId                        @controllers.Application.getAllCarouselsId
 
 
 # Map static resources from the /public folder to the /assets URL path

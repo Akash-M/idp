@@ -12,7 +12,7 @@ import java.util.List;
 public class Flight {
 
     @Id
-    private String id;
+    private int id;
 
     private int requiredNumberOfParkingStations;
     private int expectedEndOfBaggageHandling;
@@ -20,11 +20,11 @@ public class Flight {
     private List<Integer> worker_id;
     private List<Integer> workstations;
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
