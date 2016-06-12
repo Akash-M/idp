@@ -12,6 +12,7 @@ libraryDependencies ++= Seq(
   "org.springframework.data" % "spring-data-mongodb" % "1.7.2.RELEASE",
   "org.springframework" % "spring-test" % "4.0.4.RELEASE" % "test"
 )
+libraryDependencies += filters
 
 offline:=true
 

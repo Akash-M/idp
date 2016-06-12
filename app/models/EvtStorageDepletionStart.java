@@ -2,16 +2,19 @@ package models;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 /**
  * Created by prate_000 on 16-05-2016.
  */
-@Document(collection = "eventStorageDepletionStart")
+@Document(collection = "eventStorageDepletion")
 public class EvtStorageDepletionStart {
 
-    @Id
+    @Field("_time")
     private int time;
-    private int flight_id;
+
+    @Field("flight_id")
+    private int flightId;
 
     public int getTime() {
         return time;
@@ -21,11 +24,11 @@ public class EvtStorageDepletionStart {
         this.time = time;
     }
 
-    public int getFlight_id() {
-        return flight_id;
+    public int getFlightid() {
+        return flightId;
     }
 
-    public void setFlight_id(int flight_id) {
-        this.flight_id = flight_id;
+    public void setFlightid(int flight_id) {
+        this.flightId = flight_id;
     }
 }

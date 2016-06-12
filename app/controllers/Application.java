@@ -3,14 +3,8 @@ package controllers;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.mongodb.BasicDBList;
-import com.mongodb.BasicDBObject;
-import com.mongodb.DBObject;
 import models.*;
-import org.bson.BSONObject;
 import org.bson.BasicBSONObject;
-import org.bson.types.BasicBSONList;
-import org.springframework.data.domain.Page;
-import org.springframework.data.mongodb.core.mapping.Document;
 import play.libs.Json;
 import play.mvc.*;
 import services.*;
@@ -52,19 +46,19 @@ public class Application extends Controller {
     @Inject
     private EvtHandlingStartService evtHandlingStartService;
 
+    @Inject
+    private EvtStoreDepletionService evtStoreDepletionService;
+
     public Result getCentralStorage() {
         List<CentralStorage> cs = csService.getCSCapacities();
         JsonNode csJson = Json.toJson(cs);
         return ok(csJson);
-        /*return ok("Awesome");*/
     }
 
     public Result getCarouselList() {
         List<Carousel> cs = carouselService.getCarousels();
         JsonNode csJson = Json.toJson(cs);
         return ok(csJson);
-        /*Need to convert to Key-value pair JSON by adding key "Carousels"*/
-        /*return ok("Awesome");*/
     }
 
     public Result home() {
@@ -97,7 +91,6 @@ public class Application extends Controller {
         List<Flight> allFlightsList = flightService.getAllFlights();
         JsonNode allFlightsListJson = Json.toJson(allFlightsList);
         return ok(allFlightsListJson);
-        /*Need to convert to Key-value pair JSON by adding key "Flights"*/
     }
 
     public Result getFlightDetailsById(int id){
@@ -135,29 +128,23 @@ public class Application extends Controller {
         return ok(evtEndListJson);
     }
 
-    public Result getAllEvts(){
-        List<EvtHandlingStart> evtHandlingStartsList = evtHandlingStartService.getEvtHandlingStartByFlightId(4);
-        List<EvtBaggageArrival> evtBaggageArrivalList = evtBaggageArrivalService.getEvtBaggageArrivalByFlightId(4);
-        List<EvtHandlingEnd> evtHandlingEndByFlightIdList = evtHandlingEndService.getEvtHandlingEndByFlightId(4);
-        BasicDBList allEventList = new BasicDBList();
-        allEventList.addAll(evtHandlingStartsList);
-        allEventList.addAll(evtBaggageArrivalList);
-        allEventList.addAll(evtHandlingEndByFlightIdList);
-        BasicBSONObject bsonObject = new BasicBSONObject();
-        bsonObject.put("Events", allEventList);
-        JsonNode carouselsIdJson = Json.toJson(bsonObject);
-        return ok(carouselsIdJson);
-    }
-
     public Result getAllCarouselEvents(int carouselId){
+
+        /**
+         * SH : Start Handling
+         * SD : Storage Depletion
+         * WA : Worker Allocation
+         * BA : Baggage Arrival
+         * EH : End Handling
+         */
+
         List<EvtHandlingStart> evtHandlingStartsList = evtHandlingStartService.getEvtHandlingStartByCarouselId(carouselId);
         BasicDBList allEventList = new BasicDBList();
-
-
         BasicBSONObject flightBSONObject = new BasicBSONObject();
         BasicBSONObject carouselBSONObject = new BasicBSONObject();
 
         for (Iterator<EvtHandlingStart> i = evtHandlingStartsList.iterator(); i.hasNext();) {
+
             List<BasicBSONObject> bsonObjectList = new ArrayList();
             BasicBSONObject bsonObject = new BasicBSONObject();
             allEventList.clear();
@@ -165,39 +152,37 @@ public class Application extends Controller {
             int flight_id = evtHandlingStart.getFlightid();
             bsonObject.append("time", evtHandlingStart.getTime());
             bsonObject.append("name", "SH");
-            bsonObject.append("bags", 0);
-            System.out.println(bsonObject);
             bsonObjectList.add(bsonObject);
-            /**
-             * SH : Start Handling
-             * SD : Storage Depletion
-             * WA : Worker Allocation
-             * BA : Baggage Arrival
-             * EH : End Handling
-             */
 
-            List<EvtBaggageArrival> evtBaggageArrivalList = evtBaggageArrivalService.getEvtBaggageArrivalByFlightId(flight_id);
-            System.out.println(evtBaggageArrivalList.size());
-            for(Iterator<EvtBaggageArrival> j = evtBaggageArrivalList.iterator(); j.hasNext();){
-                EvtBaggageArrival evtBaggageArrival = j.next();
+
+            List<EvtStorageDepletionStart> evtStorageDepletionStartList  = evtStoreDepletionService.getEvtStoreDepletionStartByFlightId(flight_id);
+            for(Iterator<EvtStorageDepletionStart> k = evtStorageDepletionStartList.iterator(); k.hasNext();){
+                EvtStorageDepletionStart evtStorageDepletionStart = k.next();
                 BasicBSONObject bsonObject1 = new BasicBSONObject();
-                bsonObject1.put("time", evtBaggageArrival.getTime() );
-                bsonObject1.put("name", "BA");
-                bsonObject1.put("bags", evtBaggageArrival.getBags());
-                System.out.println(bsonObject1);
+                bsonObject1.put("time", evtStorageDepletionStart.getTime() );
+                bsonObject1.put("name", "SD");
                 bsonObjectList.add(bsonObject1);
             }
-            List<EvtHandlingEnd> evtHandlingEndByFlightIdList = evtHandlingEndService.getEvtHandlingEndByFlightId(flight_id);
-            System.out.println(evtHandlingEndByFlightIdList.size());
-            for(Iterator<EvtHandlingEnd> k = evtHandlingEndByFlightIdList.iterator(); k.hasNext();){
-                EvtHandlingEnd evtHandlingEnd = k.next();
+
+            List<EvtBaggageArrival> evtBaggageArrivalList = evtBaggageArrivalService.getEvtBaggageArrivalByFlightId(flight_id);
+            for(Iterator<EvtBaggageArrival> j = evtBaggageArrivalList.iterator(); j.hasNext();){
+                EvtBaggageArrival evtBaggageArrival = j.next();
                 BasicBSONObject bsonObject2 = new BasicBSONObject();
-                bsonObject2.put("time", evtHandlingEnd.getTime() );
-                System.out.println(bsonObject2);
+                bsonObject2.put("time", evtBaggageArrival.getTime() );
+                bsonObject2.put("name", "BA");
+                bsonObject2.put("bags", evtBaggageArrival.getBags());
                 bsonObjectList.add(bsonObject2);
             }
-            System.out.println(bsonObjectList);
-            //allEventList.addAll(bsonObjectList);
+
+            List<EvtHandlingEnd> evtHandlingEndByFlightIdList = evtHandlingEndService.getEvtHandlingEndByFlightId(flight_id);
+            for(Iterator<EvtHandlingEnd> k = evtHandlingEndByFlightIdList.iterator(); k.hasNext();){
+                EvtHandlingEnd evtHandlingEnd = k.next();
+                BasicBSONObject bsonObject3 = new BasicBSONObject();
+                bsonObject3.put("time", evtHandlingEnd.getTime() );
+                bsonObject3.put("name", "EH" );
+                bsonObjectList.add(bsonObject3);
+            }
+
             flightBSONObject.append(""+flight_id, bsonObjectList);
         }
         carouselBSONObject.append(""+carouselId, flightBSONObject);
@@ -205,6 +190,5 @@ public class Application extends Controller {
         JsonNode carouselsEvtsJson = Json.toJson(carouselBSONObject);
         return ok(carouselsEvtsJson);
     }
-
 
 }
