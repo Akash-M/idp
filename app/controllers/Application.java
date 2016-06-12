@@ -140,11 +140,14 @@ public class Application extends Controller {
 
         List<EvtHandlingStart> evtHandlingStartsList = evtHandlingStartService.getEvtHandlingStartByCarouselId(carouselId);
         BasicDBList allEventList = new BasicDBList();
-        BasicBSONObject flightBSONObject = new BasicBSONObject();
+
         BasicBSONObject carouselBSONObject = new BasicBSONObject();
+        List<BasicBSONObject> flightBsonList = new ArrayList<>();
+
 
         for (Iterator<EvtHandlingStart> i = evtHandlingStartsList.iterator(); i.hasNext();) {
 
+            BasicBSONObject flightBSONObject = new BasicBSONObject();
             List<BasicBSONObject> bsonObjectList = new ArrayList();
             BasicBSONObject bsonObject = new BasicBSONObject();
             allEventList.clear();
@@ -182,13 +185,19 @@ public class Application extends Controller {
                 bsonObject3.put("name", "EH" );
                 bsonObjectList.add(bsonObject3);
             }
-
-            flightBSONObject.append(""+flight_id, bsonObjectList);
+            flightBSONObject.append("flight_id", flight_id);
+            flightBSONObject.append("Events", bsonObjectList);
+            flightBsonList.add(flightBSONObject);
         }
-        carouselBSONObject.append(""+carouselId, flightBSONObject);
+        carouselBSONObject.append("carousel_id", carouselId);
+        carouselBSONObject.append("Flights", flightBsonList);
+
+
 
         JsonNode carouselsEvtsJson = Json.toJson(carouselBSONObject);
         return ok(carouselsEvtsJson);
     }
 
 }
+
+
