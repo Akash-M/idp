@@ -168,12 +168,14 @@ public class Application extends Controller {
             }
 
             List<EvtBaggageArrival> evtBaggageArrivalList = evtBaggageArrivalService.getEvtBaggageArrivalByFlightId(flight_id);
+            int totalBagsAtATime = 0;
             for(Iterator<EvtBaggageArrival> j = evtBaggageArrivalList.iterator(); j.hasNext();){
                 EvtBaggageArrival evtBaggageArrival = j.next();
                 BasicBSONObject bsonObject2 = new BasicBSONObject();
+                totalBagsAtATime += evtBaggageArrival.getBags();
                 bsonObject2.put("time", evtBaggageArrival.getTime() );
                 bsonObject2.put("name", "BA");
-                bsonObject2.put("bags", evtBaggageArrival.getBags());
+                bsonObject2.put("bags", totalBagsAtATime);
                 bsonObjectList.add(bsonObject2);
             }
 
@@ -199,5 +201,3 @@ public class Application extends Controller {
     }
 
 }
-
-

@@ -34,4 +34,9 @@ public class EvtBaggageArrivalServiceImpl implements EvtBaggageArrivalService{
     public List<EvtBaggageArrival> getEvtBaggageArrivalByFlightIdAndTime(int flight_id, int time) {
         return evtBaggageArrivalDAO.findByFlightIdAndTime(flight_id, time);
     }
+
+    @Override
+    public List<EvtBaggageArrival> getEvtBaggageArrivalByFlightIdOrderByTime(int flightId){
+        return evtBaggageArrivalDAO.findByFlightIdOrderByTime(flightId);
+    }
 }

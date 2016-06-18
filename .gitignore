@@ -8,3 +8,7 @@ target
 /RUNNING_PID
 /project/.sbtserver
 .gitignore
+.iml
+.ipr
+.iws
+
