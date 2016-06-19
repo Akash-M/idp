@@ -214,4 +214,14 @@ public class Application extends Controller {
         return ok(carouselsEvtsJson);
     }
 
+    /*CORS file Action set up for preflight request*/
+    public static Result preflight(String all) {
+        System.out.println("Preflight Request Wrapping");
+        response().setHeader("Access-Control-Allow-Origin", "*");
+        response().setHeader("Allow", "*");
+        response().setHeader("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE, OPTIONS");
+        response().setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Referer, User-Agent");
+        return ok();
+    }
+
 }
