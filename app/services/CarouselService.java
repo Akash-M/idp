@@ -13,7 +13,7 @@ public interface CarouselService {
     void addCarousel(Carousel carousel);
     int getMaxCapacity(int carouselId);
     int getCurrentCapacity(int carouselId);
-    List<Carousel> getCarousels();
+    JsonNode getCarousels();
     Carousel findById(int id);
     int countWorkStations(int carouselId);
     JsonNode getFlightList(int carouselId);

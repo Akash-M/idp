@@ -1,5 +1,7 @@
 package controllers;
 
+import play.Configuration;
+import play.Play;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.mongodb.BasicDBList;
@@ -49,17 +51,10 @@ public class Application extends Controller {
     @Inject
     private EvtStoreDepletionService evtStoreDepletionService;
 
-    public Result getCentralStorage() {
-        List<CentralStorage> cs = csService.getCSCapacities();
-        JsonNode csJson = Json.toJson(cs);
-        return ok(csJson);
-    }
+    @Inject
+    private  EvtWorkerStartToHandleService evtWorkerStartToHandleService;
 
-    public Result getCarouselList() {
-        List<Carousel> cs = carouselService.getCarousels();
-        JsonNode csJson = Json.toJson(cs);
-        return ok(csJson);
-    }
+
 
     public Result home() {
         return ok(views.html.home.render());
@@ -67,7 +62,19 @@ public class Application extends Controller {
 
     public Result carousel() { return ok(views.html.carousel.render());}
 
+    public Result getCentralStorage() {
+        List<CentralStorage> cs = csService.getCSCapacities();
+        JsonNode csJson = Json.toJson(cs);
+        return ok(csJson);
+    }
+
+    public Result getCarouselList() {
+        return ok(carouselService.getCarousels());
+    }
+
     public Result getCarouselDetailsById(int id) {
+
+
         Carousel carousel = carouselService.findById(id);
         JsonNode carouselJson = Json.toJson(carousel);
         JsonNode flightsNode = carouselService.getFlightList(id);
@@ -132,6 +139,7 @@ public class Application extends Controller {
 
         /**
          * SH : Start Handling
+         * WH : Worker Start To Handle
          * SD : Storage Depletion
          * WA : Worker Allocation
          * BA : Baggage Arrival
@@ -157,6 +165,14 @@ public class Application extends Controller {
             bsonObject.append("name", "SH");
             bsonObjectList.add(bsonObject);
 
+            List<EvtWorkerStartToHandle>  evtWorkerStartToHandlelist = evtWorkerStartToHandleService.getEvtWorkerStartToHandleListByFlightId(flight_id);
+            for(Iterator<EvtWorkerStartToHandle> k = evtWorkerStartToHandlelist.iterator(); k.hasNext();){
+                EvtWorkerStartToHandle evtWorkerStartToHandle = k.next();
+                BasicBSONObject bsonObject0 = new BasicBSONObject();
+                bsonObject0.put("time", evtWorkerStartToHandle.getTime() );
+                bsonObject0.put("name", "WH");
+                bsonObjectList.add(bsonObject0);
+            }
 
             List<EvtStorageDepletionStart> evtStorageDepletionStartList  = evtStoreDepletionService.getEvtStoreDepletionStartByFlightId(flight_id);
             for(Iterator<EvtStorageDepletionStart> k = evtStorageDepletionStartList.iterator(); k.hasNext();){
@@ -193,8 +209,6 @@ public class Application extends Controller {
         }
         carouselBSONObject.append("carousel_id", carouselId);
         carouselBSONObject.append("Flights", flightBsonList);
-
-
 
         JsonNode carouselsEvtsJson = Json.toJson(carouselBSONObject);
         return ok(carouselsEvtsJson);

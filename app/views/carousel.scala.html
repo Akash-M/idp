@@ -116,6 +116,7 @@
                 <td>Current Capacity</td>
                 <td>Flights Assigned</td>
                 <td>Working Stations Assigned</td>
+                <td>Carousel Status</td>
               </tr>
             </thead>
           </table>
@@ -172,7 +173,8 @@
               {"data": "maxCapacity","orderable": "false"},
               {"data": "currentCapacity","orderable": "false"},
               {"data": "flight_id","orderable": "false"},
-              {"data": "workingStationsAssigned","orderable": "false"}
+              {"data": "workingStationsAssigned","orderable": "false"},
+              {"data": "carouselStatus", "orderable": "true"}
             ]});
           setInterval(function() { allCarousels.ajax.reload(); }, 5000);
 
