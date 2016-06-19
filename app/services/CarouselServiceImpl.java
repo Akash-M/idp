@@ -53,13 +53,12 @@ public class CarouselServiceImpl implements CarouselService {
         Configuration conf = Play.application().configuration();
         Integer carouselLevelOk = conf.getInt("play.application.carousel.ok");
         Integer carouselLevelWarn = conf.getInt("play.application.carousel.warn");
-        Integer carouselLevelDanger = conf.getInt("play.application.carousel.danger");
         for (Iterator<Carousel> carouselPtr = carousels.iterator(); carouselPtr.hasNext();
              ) {
             Carousel singleCarousel = carouselPtr.next();
             Integer currentCarouselCapacity = singleCarousel.getCurrentCapacity();
             Integer maxCarouselCapacity = singleCarousel.getMaxCapacity();
-            Integer currentStatusValue = currentCarouselCapacity/maxCarouselCapacity * 100;
+            float currentStatusValue = ((float)currentCarouselCapacity/(float) maxCarouselCapacity) * 100;
             String singleCarouselStatus = "";
             if(currentStatusValue <= carouselLevelOk){
                 singleCarouselStatus = "OK";
