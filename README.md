@@ -4,12 +4,12 @@ Baggage Handling System Dashboard - Backend
 This project is built for Department of Operations Research, Technische Universität München as an Inter-Disciplinary Project.
 The project is back-end part of a two part application(front-end and back-end) implemented using Play 2.1.5 with Spring Data MongoDB.
 front-end is implemented using AngularJS and is present as a seperate repository
-
+---
 # Baggage Handling System Dashboard
 The application consists of two pages: `Home` and `Carousel`
 - Home page displays details of all current carousels present in the DB
 - Carousel page displays flight details, baggage details and graphs belonging to a carousel as selected by you in the dropdown menu
-
+---
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
@@ -18,19 +18,27 @@ Steps:
 > Clone this project into your local machine using git `git clone https://github.com/Akash-M/idp-backend.git`
 > cd to project directory where `activator.bat` is present.
 > run commands `activator clean` and `activator run`
-> the project will now run on [LocalHost:9000](http://locahost:9000/)
+> the application will now run on port 9000
 ```
+[LocalHost:9000](http://locahost:9000/)
 
 ### Prerequisities
 
 What things you need to install the software and how to install them
 
 ```
-> Install Play( we will use activator version of the play for this) [Install Play](https://www.playframework.com/documentation/2.5.x/Installing)
-> [Install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-> for further developmnet configure any IDE of your choice wiht Scala/Java plugins [Setting up your preffered IDE for play](https://www.playframework.com/documentation/2.5.x/IDE)
+> Play 2.1.5 ( we will use activator version of the play for this) 
 ```
-
+[Install Play](https://www.playframework.com/documentation/2.5.x/Installing)
+```
+> Any version of Git
+```
+[Install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+```
+> for further developmnet configure any IDE of your choice wiht Scala/Java plugins 
+```
+[Setting up your preffered IDE for play](https://www.playframework.com/documentation/2.5.x/IDE)
+---
 ## Directory structure
 and important files
 Click [here](https://www.playframework.com/documentation/2.5.x/Anatomy) for complete anatomy of Play application
@@ -72,7 +80,7 @@ target                   → Generated stuff
  └ web                   → Compiled web assets
 test                     → source folder for unit or functional tests
 ```
-
+---
 ## Adding configuration strings that can be access by play application
 You can add any configuration constant that you will need to use in the application with in conf/application.conf as key/value pairs 
 ex. play.application.status.ok=90
