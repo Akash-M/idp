@@ -17,7 +17,7 @@ public class EvtWorkerStartToHandleServiceImpl implements EvtWorkerStartToHandle
     private EvtWorkerStartToHandleDAO evtWorkerStartToHandleDAO;
 
     @Override
-    public List<EvtWorkerStartToHandle> getEvtWorkerStartToHandleByTime(int time) {
+    public List<EvtWorkerStartToHandle> getEvtWorkerStartToHandleByTime(Integer time) {
         return evtWorkerStartToHandleDAO.findByTime(time);
     }
 
@@ -27,7 +27,7 @@ public class EvtWorkerStartToHandleServiceImpl implements EvtWorkerStartToHandle
     }
 
     @Override
-    public List<EvtWorkerStartToHandle> getEvtWorkerStartToHandleListByFlightId(int flight_id) {
+    public List<EvtWorkerStartToHandle> getEvtWorkerStartToHandleListByFlightId(Integer flight_id) {
         return evtWorkerStartToHandleDAO.findByFlightIdOrderByTime(flight_id);
     }
 }

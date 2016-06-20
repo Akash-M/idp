@@ -17,7 +17,7 @@ public class EvtHandlingStartServiceImpl implements EvtHandlingStartService {
     private EvtHandlingStartDAO evtHandlingStartDAO;
 
     @Override
-    public List<EvtHandlingStart> getEvtHandlingStartByFlightId(int flight_id) {
+    public List<EvtHandlingStart> getEvtHandlingStartByFlightId(Integer flight_id) {
         return evtHandlingStartDAO.findByFlightId(flight_id);
     }
 
@@ -27,12 +27,12 @@ public class EvtHandlingStartServiceImpl implements EvtHandlingStartService {
     }
 
     @Override
-    public List<EvtHandlingStart> getEvtHandlingStartByTime(int time) {
+    public List<EvtHandlingStart> getEvtHandlingStartByTime(Integer time) {
         return evtHandlingStartDAO.findByTime(time);
     }
 
     @Override
-    public List<EvtHandlingStart> getEvtHandlingStartByCarouselId(int carousel_id) {
+    public List<EvtHandlingStart> getEvtHandlingStartByCarouselId(Integer carousel_id) {
         return evtHandlingStartDAO.findByCarouselId(carousel_id);
     }
 }

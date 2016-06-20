@@ -100,7 +100,7 @@ public class Application extends Controller {
         return ok(allFlightsListJson);
     }
 
-    public Result getFlightDetailsById(int id){
+    public Result getFlightDetailsById(Integer id){
         JsonNode flightJsonNode = flightService.getFlightDetailsById(id);
         return ok(flightJsonNode);
     }
@@ -135,7 +135,7 @@ public class Application extends Controller {
         return ok(evtEndListJson);
     }
 
-    public Result getAllCarouselEvents(int carouselId){
+    public Result getAllCarouselEvents(Integer carouselId){
 
         /**
          * SH : Start Handling

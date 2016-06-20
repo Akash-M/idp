@@ -2,8 +2,11 @@ package services;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.mongodb.BasicDBObject;
+import com.mongodb.Mongo;
 import daos.CarouselDAO;
 import models.Carousel;
+import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import play.Configuration;
 import play.Play;
@@ -22,7 +25,7 @@ import configs.AppConfig;
 public class CarouselServiceImpl implements CarouselService {
 
     @Inject
-    private MongoTemplate mongoTemplate;
+    private AppConfig appConfig;
 
     @Inject
     private CarouselDAO carouselDAO;
@@ -32,22 +35,24 @@ public class CarouselServiceImpl implements CarouselService {
         carouselDAO.save(carousel);
     }
 
-    public Carousel findById(int carouselId){
+    public Carousel findById(Integer carouselId){
         return carouselDAO.findById(carouselId);
     }
 
-    public int getMaxCapacity(int carouselId){
+    public Integer getMaxCapacity(Integer carouselId){
         Carousel carousel = carouselDAO.findById(carouselId);
         return carousel.getMaxCapacity();
     }
 
-    public int getCurrentCapacity(int carouselId){
+    public Integer getCurrentCapacity(Integer carouselId){
         Carousel carousel = carouselDAO.findById(carouselId);
         return carousel.getCurrentCapacity();
     }
 
     public JsonNode getCarousels(){
+
         List<Carousel> carousels = carouselDAO.findAll();
+
         List<ObjectNode> carouselsModifiedList = new ArrayList<ObjectNode>();
         /*Read Config file for Carousel limits*/
         Configuration conf = Play.application().configuration();
@@ -78,7 +83,7 @@ public class CarouselServiceImpl implements CarouselService {
         return Json.toJson(carouselsModifiedList);
     }
 
-    public int countWorkStations(int carouselId){
+    public Integer countWorkStations(Integer carouselId){
         Carousel carousel = carouselDAO.findById(carouselId);
         carousel.getWorkingStationsAssigned();
         JsonNode csJson = Json.toJson(carousel);
@@ -86,7 +91,7 @@ public class CarouselServiceImpl implements CarouselService {
         return workStationsNode.size();
     }
 
-    public JsonNode getFlightList(int carouselId){
+    public JsonNode getFlightList(Integer carouselId){
         Carousel carousel = carouselDAO.findById(carouselId);
         JsonNode csJson = Json.toJson(carousel);
         JsonNode flightsNode = csJson.get("flight_id") ;
@@ -100,6 +105,7 @@ public class CarouselServiceImpl implements CarouselService {
         for (Iterator<Carousel> i = carousels.iterator(); i.hasNext();) {
             carouselsIds.add(i.next().getId());
         }
+        Collections.sort(carouselsIds);
         return carouselsIds;
     }
 

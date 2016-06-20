@@ -10,6 +10,6 @@ import java.util.List;
  */
 public interface FlightService {
     List<Flight> getAllFlights();
-    JsonNode getWorkersList(int flightId);
-    JsonNode getFlightDetailsById(int flightId);
+    JsonNode getWorkersList(Integer flightId);
+    JsonNode getFlightDetailsById(Integer flightId);
 }

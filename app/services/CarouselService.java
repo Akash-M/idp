@@ -11,11 +11,11 @@ import java.util.List;
  */
 public interface CarouselService {
     void addCarousel(Carousel carousel);
-    int getMaxCapacity(int carouselId);
-    int getCurrentCapacity(int carouselId);
+    Integer getMaxCapacity(Integer carouselId);
+    Integer getCurrentCapacity(Integer carouselId);
     JsonNode getCarousels();
-    Carousel findById(int id);
-    int countWorkStations(int carouselId);
-    JsonNode getFlightList(int carouselId);
+    Carousel findById(Integer id);
+    Integer countWorkStations(Integer carouselId);
+    JsonNode getFlightList(Integer carouselId);
     List<Integer> getAllCarouselsId();
 }

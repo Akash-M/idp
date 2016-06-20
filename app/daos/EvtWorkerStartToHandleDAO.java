@@ -11,6 +11,6 @@ import java.util.List;
 public interface EvtWorkerStartToHandleDAO extends MongoRepository<EvtWorkerStartToHandle, Integer> {
 
     List<EvtWorkerStartToHandle> findAll();
-    List<EvtWorkerStartToHandle> findByFlightIdOrderByTime(int flight_id);
-    List<EvtWorkerStartToHandle> findByTime(int time);
+    List<EvtWorkerStartToHandle> findByFlightIdOrderByTime(Integer flight_id);
+    List<EvtWorkerStartToHandle> findByTime(Integer time);
 }

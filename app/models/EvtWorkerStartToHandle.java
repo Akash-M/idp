@@ -12,27 +12,27 @@ import java.util.List;
 public class EvtWorkerStartToHandle {
 
     @Field("_time")
-    private int time;
+    private Integer time;
 
     @Field("flight_id")
-    private int flightId;
+    private Integer flightId;
 
     @Field("worker_id")
     private List<Integer> workerIds;
 
-    public int getTime() {
+    public Integer getTime() {
         return time;
     }
 
-    public void setTime(int time) {
+    public void setTime(Integer time) {
         this.time = time;
     }
 
-    public int getFlightid() {
+    public Integer getFlightid() {
         return flightId;
     }
 
-    public void setFlightid(int flight_id) {
+    public void setFlightid(Integer flight_id) {
         this.flightId = flight_id;
     }
 

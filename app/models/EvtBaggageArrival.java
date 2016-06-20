@@ -12,34 +12,34 @@ import org.springframework.data.mongodb.core.mapping.Field;
 public class EvtBaggageArrival {
 
     @Field("_time")
-    private int time;
+    private Integer time;
 
     @Field("flight_id")
-    private int flightId;
+    private Integer flightId;
 
-    private int bags;
+    private Integer bags;
 
-    public int getTime() {
+    public Integer getTime() {
         return time;
     }
 
-    public void setTime(int time) {
+    public void setTime(Integer time) {
         this.time = time;
     }
 
-    public int getFlightid() {
+    public Integer getFlightid() {
         return flightId;
     }
 
-    public void setFlightid(int flight_id) {
+    public void setFlightid(Integer flight_id) {
         this.flightId = flight_id;
     }
 
-    public int getBags() {
+    public Integer getBags() {
         return bags;
     }
 
-    public void setBags(int bags) {
+    public void setBags(Integer bags) {
         this.bags = bags;
     }
 }

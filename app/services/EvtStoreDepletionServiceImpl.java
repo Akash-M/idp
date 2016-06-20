@@ -22,12 +22,12 @@ public class EvtStoreDepletionServiceImpl implements EvtStoreDepletionService {
     }
 
     @Override
-    public List<EvtStorageDepletionStart> getEvtStoreDepletionStartByTime(int time) {
+    public List<EvtStorageDepletionStart> getEvtStoreDepletionStartByTime(Integer time) {
         return evtStoreDepletionStartDAO.findByTime(time);
     }
 
     @Override
-    public List<EvtStorageDepletionStart> getEvtStoreDepletionStartByFlightId(int flight_id) {
+    public List<EvtStorageDepletionStart> getEvtStoreDepletionStartByFlightId(Integer flight_id) {
         return evtStoreDepletionStartDAO.findByFlightId(flight_id);
     }
 }

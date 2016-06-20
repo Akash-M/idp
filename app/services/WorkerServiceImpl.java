@@ -19,7 +19,7 @@ public class WorkerServiceImpl implements WorkerService {
     public List<Worker> getWorkers(){
         return workerDAO.findAll();
     }
-    public int getGroundHandlerId(int workerId){
+    public int getGroundHandlerId(Integer workerId){
         Worker worker =  workerDAO.findById(workerId);
         return worker.getGroundHandler_id();
     }

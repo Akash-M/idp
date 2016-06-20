@@ -8,5 +8,5 @@ import org.springframework.data.mongodb.repository.MongoRepository;
  */
 public interface GroundHandlerDAO extends MongoRepository<GroundHandler, Integer> {
 
-    public GroundHandler findById(int id);
+    public GroundHandler findById(Integer id);
 }

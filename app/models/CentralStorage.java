@@ -12,10 +12,10 @@ public class CentralStorage {
 
     @Id
     private Integer id;
-    private int maxCapacity;
-    private int currentCapacity;
+    private Integer maxCapacity;
+    private Integer currentCapacity;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -23,19 +23,19 @@ public class CentralStorage {
         this.id = id;
     }
 
-    public int getMaxCapacity() {
+    public Integer getMaxCapacity() {
         return maxCapacity;
     }
 
-    public void setMaxCapacity(int maxCapacity) {
+    public void setMaxCapacity(Integer maxCapacity) {
         this.maxCapacity = maxCapacity;
     }
 
-    public int getCurrentCapacity() {
+    public Integer getCurrentCapacity() {
         return currentCapacity;
     }
 
-    public void setCurrentCapacity(int currentCapacity) {
+    public void setCurrentCapacity(Integer currentCapacity) {
         this.currentCapacity = currentCapacity;
     }
 }

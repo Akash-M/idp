@@ -9,6 +9,6 @@ import java.util.List;
  */
 public interface EvtStoreDepletionService {
     List<EvtStorageDepletionStart> getEvtStoreDepletionStartList();
-    List<EvtStorageDepletionStart> getEvtStoreDepletionStartByTime(int time);
-    List<EvtStorageDepletionStart> getEvtStoreDepletionStartByFlightId(int flight_id);
+    List<EvtStorageDepletionStart> getEvtStoreDepletionStartByTime(Integer time);
+    List<EvtStorageDepletionStart> getEvtStoreDepletionStartByFlightId(Integer flight_id);
 }

@@ -22,14 +22,14 @@ public class FlightServiceImpl implements FlightService {
         return flightDAO.findAll();
     }
 
-    public JsonNode getWorkersList(int flightId){
+    public JsonNode getWorkersList(Integer flightId){
         Flight flight = flightDAO.findById(flightId);
         JsonNode flightJson = Json.toJson(flight);
         JsonNode workerJsonNode = flightJson.get("worker_id") ;
         return workerJsonNode;
     }
 
-    public JsonNode getFlightDetailsById(int flightId){
+    public JsonNode getFlightDetailsById(Integer flightId){
         Flight flight = flightDAO.findById(flightId);
         JsonNode flightJsonNode = Json.toJson(flight);
         return flightJsonNode;

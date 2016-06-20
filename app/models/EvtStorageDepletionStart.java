@@ -11,16 +11,16 @@ import org.springframework.data.mongodb.core.mapping.Field;
 public class EvtStorageDepletionStart {
 
     @Field("_time")
-    private int time;
+    private Integer time;
 
     @Field("flight_id")
-    private int flightId;
+    private Integer flightId;
 
-    public int getTime() {
+    public Integer getTime() {
         return time;
     }
 
-    public void setTime(int time) {
+    public void setTime(Integer time) {
         this.time = time;
     }
 
@@ -28,7 +28,7 @@ public class EvtStorageDepletionStart {
         return flightId;
     }
 
-    public void setFlightid(int flight_id) {
+    public void setFlightid(Integer flight_id) {
         this.flightId = flight_id;
     }
 }

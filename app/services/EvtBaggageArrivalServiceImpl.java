@@ -16,7 +16,7 @@ public class EvtBaggageArrivalServiceImpl implements EvtBaggageArrivalService{
     @Inject
     private EvtBaggageArrivalDAO evtBaggageArrivalDAO;
 
-    public List<EvtBaggageArrival> getEvtBaggageArrivalByTime(int time) {
+    public List<EvtBaggageArrival> getEvtBaggageArrivalByTime(Integer time) {
         List<EvtBaggageArrival> evtBaggageArrival = evtBaggageArrivalDAO.findByTime(time);
         return evtBaggageArrival;
     }
@@ -26,17 +26,17 @@ public class EvtBaggageArrivalServiceImpl implements EvtBaggageArrivalService{
         return evtBaggageArrivalDAO.findAll();
     }
 
-    public List<EvtBaggageArrival> getEvtBaggageArrivalByFlightId(int flightId){
+    public List<EvtBaggageArrival> getEvtBaggageArrivalByFlightId(Integer flightId){
         return evtBaggageArrivalDAO.findByFlightId(flightId);
     }
 
     @Override
-    public List<EvtBaggageArrival> getEvtBaggageArrivalByFlightIdAndTime(int flight_id, int time) {
+    public List<EvtBaggageArrival> getEvtBaggageArrivalByFlightIdAndTime(Integer flight_id, Integer time) {
         return evtBaggageArrivalDAO.findByFlightIdAndTime(flight_id, time);
     }
 
     @Override
-    public List<EvtBaggageArrival> getEvtBaggageArrivalByFlightIdOrderByTime(int flightId){
+    public List<EvtBaggageArrival> getEvtBaggageArrivalByFlightIdOrderByTime(Integer flightId){
         return evtBaggageArrivalDAO.findByFlightIdOrderByTime(flightId);
     }
 }

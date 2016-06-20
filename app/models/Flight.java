@@ -12,23 +12,23 @@ import java.util.List;
 public class Flight {
 
     @Id
-    private int id;
+    private Integer id;
 
-    private int requiredNumberOfParkingStations;
-    private int expectedEndOfBaggageHandling;
-    private int carousel_id;
+    private Integer requiredNumberOfParkingStations;
+    private Integer expectedEndOfBaggageHandling;
+    private Integer carousel_id;
     private List<Integer> worker_id;
     private List<Integer> workstations;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public int getRequiredNumberOfParkingStations() {
+    public Integer getRequiredNumberOfParkingStations() {
         return requiredNumberOfParkingStations;
     }
 
@@ -36,19 +36,19 @@ public class Flight {
         this.requiredNumberOfParkingStations = requiredNumberOfParkingStations;
     }
 
-    public int getExpectedEndOfBaggageHandling() {
+    public Integer getExpectedEndOfBaggageHandling() {
         return expectedEndOfBaggageHandling;
     }
 
-    public void setExpectedEndOfBaggageHandling(int expectedEndOfBaggageHandling) {
+    public void setExpectedEndOfBaggageHandling(Integer expectedEndOfBaggageHandling) {
         this.expectedEndOfBaggageHandling = expectedEndOfBaggageHandling;
     }
 
-    public int getCarousel_id() {
+    public Integer getCarousel_id() {
         return carousel_id;
     }
 
-    public void setCarousel_id(int carousel_id) {
+    public void setCarousel_id(Integer carousel_id) {
         this.carousel_id = carousel_id;
     }
 

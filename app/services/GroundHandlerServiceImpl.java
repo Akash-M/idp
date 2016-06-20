@@ -20,7 +20,7 @@ public class GroundHandlerServiceImpl implements GroundHandlerService {
         return groundHandlerDAO.findAll();
     }
 
-    public String getGroundHandlerNameById(int id){
+    public String getGroundHandlerNameById(Integer id){
         GroundHandler groundHandler = groundHandlerDAO.findById(id);
         return groundHandler.getName();
     }

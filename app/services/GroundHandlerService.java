@@ -11,5 +11,5 @@ import java.util.List;
  */
 public interface GroundHandlerService {
     List<GroundHandler> getGroundHandlers();
-    String getGroundHandlerNameById(int id);
+    String getGroundHandlerNameById(Integer id);
 }

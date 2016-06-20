@@ -13,38 +13,38 @@ import java.util.List;
 public class EvtHandlingStart {
 
     @Field("_time")
-    private int time;
+    private Integer time;
 
     @Field("carousel_id")
-    private int carouselId;
+    private Integer carouselId;
 
     @Field("flight_id")
-    private int flightId;
+    private Integer flightId;
 
     @Field("workingstations")
     private List<Integer> workingStations;
 
-    public int getTime() {
+    public Integer getTime() {
         return time;
     }
 
-    public void setTime(int time) {
+    public void setTime(Integer time) {
         this.time = time;
     }
 
-    public int getCarouselid() {
+    public Integer getCarouselid() {
         return carouselId;
     }
 
-    public void setCarouselid(int carousel_id) {
+    public void setCarouselid(Integer carousel_id) {
         this.carouselId = carousel_id;
     }
 
-    public int getFlightid() {
+    public Integer getFlightid() {
         return flightId;
     }
 
-    public void setFlightid(int flight_id) {
+    public void setFlightid(Integer flight_id) {
         this.flightId = flight_id;
     }
 

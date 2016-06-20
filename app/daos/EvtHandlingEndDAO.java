@@ -10,6 +10,6 @@ import java.util.List;
  */
 public interface EvtHandlingEndDAO extends MongoRepository<EvtHandlingEnd, Integer> {
     List<EvtHandlingEnd> findAll();
-    List<EvtHandlingEnd> findByTime(int time);
-    List<EvtHandlingEnd> findByFlightId(int flight_id);
+    List<EvtHandlingEnd> findByTime(Integer time);
+    List<EvtHandlingEnd> findByFlightId(Integer flight_id);
 }

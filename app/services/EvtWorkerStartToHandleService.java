@@ -9,6 +9,6 @@ import java.util.List;
  */
 public interface EvtWorkerStartToHandleService {
     List<EvtWorkerStartToHandle> getEvtWorkerStartToHandleList();
-    List<EvtWorkerStartToHandle> getEvtWorkerStartToHandleByTime(int time);
-    List<EvtWorkerStartToHandle> getEvtWorkerStartToHandleListByFlightId(int flight_id);
+    List<EvtWorkerStartToHandle> getEvtWorkerStartToHandleByTime(Integer time);
+    List<EvtWorkerStartToHandle> getEvtWorkerStartToHandleListByFlightId(Integer flight_id);
 }

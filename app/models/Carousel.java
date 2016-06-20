@@ -15,13 +15,13 @@ public class Carousel {
     @Id
     private Integer _id;
 
-    private int xCoordinate;
-    private int yCoordinate;
-    private int parkingPositions;
-    private int maxCapacity;
-    private int currentCapacity;
+    private Integer xCoordinate;
+    private Integer yCoordinate;
+    private Integer parkingPositions;
+    private Integer maxCapacity;
+    private Integer currentCapacity;
     private List<Integer> flight_id;
-    private List<Integer> workingStationsAssigned;
+    private Integer workingStationsAssigned;
 
     public Integer getId() {
         return _id ;
@@ -31,43 +31,43 @@ public class Carousel {
          this._id = id;
     }
 
-    public int getxCoordinate() {
+    public Integer getxCoordinate() {
         return xCoordinate;
     }
 
-    public void setxCoordinate(int xCoordinate) {
+    public void setxCoordinate(Integer xCoordinate) {
         this.xCoordinate = xCoordinate;
     }
 
-    public int getyCoordinate() {
+    public Integer getyCoordinate() {
         return yCoordinate;
     }
 
-    public void setyCoordinate(int yCoordinate) {
+    public void setyCoordinate(Integer yCoordinate) {
         this.yCoordinate = yCoordinate;
     }
 
-    public int getParkingPositions() {
+    public Integer getParkingPositions() {
         return parkingPositions;
     }
 
-    public void setParkingPositions(int parkingPositions) {
+    public void setParkingPositions(Integer parkingPositions) {
         this.parkingPositions = parkingPositions;
     }
 
-    public int getMaxCapacity() {
+    public Integer getMaxCapacity() {
         return maxCapacity;
     }
 
-    public void setMaxCapacity(int maxCapacity) {
+    public void setMaxCapacity(Integer maxCapacity) {
         this.maxCapacity = maxCapacity;
     }
 
-    public int getCurrentCapacity() {
+    public Integer getCurrentCapacity() {
         return currentCapacity;
     }
 
-    public void setCurrentCapacity(int currentCapacity) {
+    public void setCurrentCapacity(Integer currentCapacity) {
         this.currentCapacity = currentCapacity;
     }
 
@@ -79,11 +79,11 @@ public class Carousel {
         this.flight_id = flight_id;
     }
 
-    public List<Integer> getWorkingStationsAssigned() {
+    public Integer getWorkingStationsAssigned() {
         return workingStationsAssigned;
     }
 
-    public void setWorkingStationsAssigned(List<Integer> workingStationsAssigned) {
+    public void setWorkingStationsAssigned(Integer workingStationsAssigned) {
         this.workingStationsAssigned = workingStationsAssigned;
     }
 }

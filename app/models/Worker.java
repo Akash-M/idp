@@ -10,77 +10,77 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Worker {
 
     @Id
-    private int id;
+    private Integer id;
 
-    private int shiftStartTime;
-    private int shiftStartXCoordinate;
-    private int shiftStartYCoordinate;
-    private int shiftEndTime;
-    private int shiftEndXCoordinate;
-    private int shiftEndYCoordinate;
-    private int groundHandler_id;
+    private Integer shiftStartTime;
+    private Integer shiftStartXCoordinate;
+    private Integer shiftStartYCoordinate;
+    private Integer shiftEndTime;
+    private Integer shiftEndXCoordinate;
+    private Integer shiftEndYCoordinate;
+    private Integer groundHandler_id;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public int getShiftStartTime() {
+    public Integer getShiftStartTime() {
         return shiftStartTime;
     }
 
-    public void setShiftStartTime(int shiftStartTime) {
+    public void setShiftStartTime(Integer shiftStartTime) {
         this.shiftStartTime = shiftStartTime;
     }
 
-    public int getShiftStartXCoordinate() {
+    public Integer getShiftStartXCoordinate() {
         return shiftStartXCoordinate;
     }
 
-    public void setShiftStartXCoordinate(int shiftStartXCoordinate) {
+    public void setShiftStartXCoordinate(Integer shiftStartXCoordinate) {
         this.shiftStartXCoordinate = shiftStartXCoordinate;
     }
 
-    public int getShiftStartYCoordinate() {
+    public Integer getShiftStartYCoordinate() {
         return shiftStartYCoordinate;
     }
 
-    public void setShiftStartYCoordinate(int shiftStartYCoordinate) {
+    public void setShiftStartYCoordinate(Integer shiftStartYCoordinate) {
         this.shiftStartYCoordinate = shiftStartYCoordinate;
     }
 
-    public int getShiftEndTime() {
+    public Integer getShiftEndTime() {
         return shiftEndTime;
     }
 
-    public void setShiftEndTime(int shiftEndTime) {
+    public void setShiftEndTime(Integer shiftEndTime) {
         this.shiftEndTime = shiftEndTime;
     }
 
-    public int getShiftEndXCoordinate() {
+    public Integer getShiftEndXCoordinate() {
         return shiftEndXCoordinate;
     }
 
-    public void setShiftEndXCoordinate(int shiftEndXCoordinate) {
+    public void setShiftEndXCoordinate(Integer shiftEndXCoordinate) {
         this.shiftEndXCoordinate = shiftEndXCoordinate;
     }
 
-    public int getShiftEndYCoordinate() {
+    public Integer getShiftEndYCoordinate() {
         return shiftEndYCoordinate;
     }
 
-    public void setShiftEndYCoordinate(int shiftEndYCoordinate) {
+    public void setShiftEndYCoordinate(Integer shiftEndYCoordinate) {
         this.shiftEndYCoordinate = shiftEndYCoordinate;
     }
 
-    public int getGroundHandler_id() {
+    public Integer getGroundHandler_id() {
         return groundHandler_id;
     }
 
-    public void setGroundHandler_id(int groundHandler_id) {
+    public void setGroundHandler_id(Integer groundHandler_id) {
         this.groundHandler_id = groundHandler_id;
     }
 }

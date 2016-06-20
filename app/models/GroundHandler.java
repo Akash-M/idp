@@ -10,14 +10,14 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class GroundHandler {
 
     @Id
-    private int id;
+    private Integer id;
     private String _name;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

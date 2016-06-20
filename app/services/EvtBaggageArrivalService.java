@@ -9,8 +9,8 @@ import java.util.List;
  */
 public interface EvtBaggageArrivalService {
     List<EvtBaggageArrival> getEvtBaggageArrivalList();
-    List<EvtBaggageArrival> getEvtBaggageArrivalByTime(int time);
-    List<EvtBaggageArrival> getEvtBaggageArrivalByFlightId(int flight_id);
-    List<EvtBaggageArrival> getEvtBaggageArrivalByFlightIdAndTime(int flight_id, int time);
-    List<EvtBaggageArrival> getEvtBaggageArrivalByFlightIdOrderByTime(int flightId);
+    List<EvtBaggageArrival> getEvtBaggageArrivalByTime(Integer time);
+    List<EvtBaggageArrival> getEvtBaggageArrivalByFlightId(Integer flight_id);
+    List<EvtBaggageArrival> getEvtBaggageArrivalByFlightIdAndTime(Integer flight_id, Integer time);
+    List<EvtBaggageArrival> getEvtBaggageArrivalByFlightIdOrderByTime(Integer flightId);
 }

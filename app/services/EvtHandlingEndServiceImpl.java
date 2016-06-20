@@ -22,12 +22,12 @@ public class EvtHandlingEndServiceImpl implements EvtHandlingEndService{
         return evtHandlingEndDAO.findAll();
     }
 
-    public List<EvtHandlingEnd> getEvtHandlingEndByTime(int time) {
+    public List<EvtHandlingEnd> getEvtHandlingEndByTime(Integer time) {
         return evtHandlingEndDAO.findByTime(time);
     }
 
     @Override
-    public List<EvtHandlingEnd> getEvtHandlingEndByFlightId(int flight_id) {
+    public List<EvtHandlingEnd> getEvtHandlingEndByFlightId(Integer flight_id) {
         return evtHandlingEndDAO.findByFlightId(flight_id);
     }
 

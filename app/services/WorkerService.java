@@ -9,5 +9,5 @@ import java.util.List;
  */
 public interface WorkerService {
     List<Worker> getWorkers();
-    int getGroundHandlerId(int workerId);
+    int getGroundHandlerId(Integer workerId);
 }

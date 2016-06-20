@@ -16,7 +16,4 @@ import java.util.List;
 public interface CarouselDAO extends MongoRepository<Carousel, Integer>{
     Carousel findById(Integer Id);
     List<Carousel> findAll();
-
-    //List<Carousel> find(Query newQuery, Class);
-
 }
