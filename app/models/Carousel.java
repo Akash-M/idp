@@ -11,7 +11,6 @@ import java.util.List;
 @Document(collection = "carousel")
 public class Carousel {
 
-
     @Id
     private Integer _id;
 
@@ -21,7 +20,7 @@ public class Carousel {
     private Integer maxCapacity;
     private Integer currentCapacity;
     private List<Integer> flight_id;
-    private Integer workingStationsAssigned;
+    private Integer workStations;
 
     public Integer getId() {
         return _id ;
@@ -79,11 +78,11 @@ public class Carousel {
         this.flight_id = flight_id;
     }
 
-    public Integer getWorkingStationsAssigned() {
-        return workingStationsAssigned;
+    public Integer getWorkStations() {
+        return workStations;
     }
 
-    public void setWorkingStationsAssigned(Integer workingStationsAssigned) {
-        this.workingStationsAssigned = workingStationsAssigned;
+    public void setWorkStations(Integer workStations) {
+        this.workStations = workStations;
     }
 }

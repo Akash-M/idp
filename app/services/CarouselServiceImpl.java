@@ -2,12 +2,8 @@ package services;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.mongodb.BasicDBObject;
-import com.mongodb.Mongo;
 import daos.CarouselDAO;
 import models.Carousel;
-import org.springframework.data.mongodb.core.MongoOperations;
-import org.springframework.data.mongodb.core.MongoTemplate;
 import play.Configuration;
 import play.Play;
 import play.libs.Json;
@@ -85,7 +81,7 @@ public class CarouselServiceImpl implements CarouselService {
 
     public Integer countWorkStations(Integer carouselId){
         Carousel carousel = carouselDAO.findById(carouselId);
-        carousel.getWorkingStationsAssigned();
+        carousel.getWorkStations();
         JsonNode csJson = Json.toJson(carousel);
         JsonNode workStationsNode = csJson.get("workingStationsAssigned") ;
         return workStationsNode.size();
