@@ -1,15 +1,15 @@
-Baggage Handling System Dashboard - Backend
+# Baggage Handling System Dashboard - Backend
 ---
 =================================
 This project is built for Department of Operations Research, Technische Universität München as an Inter-Disciplinary Project.
 The project is back-end part of a two part application(front-end and back-end) implemented using Play 2.1.5 with Spring Data MongoDB.
 front-end is implemented using AngularJS and is present as a seperate repository
 
-# Baggage Handling System Dashboard
+## Baggage Handling System Dashboard
 ---
 The application consists of two pages: `Home` and `Carousel`
-- Home page displays details of all current carousels present in the DB
-- Carousel page displays flight details, baggage details and graphs belonging to a carousel as selected by you in the dropdown menu
+- `Home` page displays details of all current carousels present in the DB
+- `Carousel` page displays flight details, baggage details and graphs belonging to a carousel as selected by you in the dropdown menu
 
 ## Getting Started
 ---
@@ -25,22 +25,21 @@ Steps:
 
 ### Prerequisities
 What things you need to install the software and how to install them
-[Install Play](https://www.playframework.com/documentation/2.5.x/Installing)
+>[Install Play](https://www.playframework.com/documentation/2.5.x/Installing)
 ```
 > Play 2.1.5 ( we will use activator version of the play for this) 
 ```
-[Install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+>[Install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 ```
 > Any version of Git
 ```
-[Setting up your preffered IDE for play](https://www.playframework.com/documentation/2.5.x/IDE)
+>[Setting up your preffered IDE for play](https://www.playframework.com/documentation/2.5.x/IDE)
 ```
 > for further developmnet configure any IDE of your choice wiht Scala/Java plugins 
 ```
 
 ## Directory structure
 ---
-and important files
 Click [here](https://www.playframework.com/documentation/2.5.x/Anatomy) for complete anatomy of Play application
 ```
 app                      → Application sources
@@ -80,23 +79,24 @@ target                   → Generated stuff
  └ web                   → Compiled web assets
 test                     → source folder for unit or functional tests
 ```
----
+
 ## Adding configuration strings that can be access by play application
+---
 You can add any configuration constant that you will need to use in the application with in conf/application.conf as key/value pairs 
 ex. play.application.status.ok=90
 
-with in you service implementation add these to import statements
+With in you service implementation add these import statements
 ```
 import play.Configuration;
 import play.Play;
 ```
 Create configuration object to access configuration strings like 
 ```
-    `Configuration conf = Play.application().configuration();`       
+Configuration conf = Play.application().configuration();     
 ```
 Now you can get your configuration value using 
 ```
-    `conf.getInt("<Your.string.key")` --> for retreiving the value as Integer
-    `conf.getString("<Your.string.key")` --> for retreiving the value as String
+conf.getInt("<Your.string.key") --> for retreiving the value as Integer
+conf.getString("<Your.string.key") --> for retreiving the value as String
 ```
      
