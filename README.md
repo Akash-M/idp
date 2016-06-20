@@ -25,19 +25,18 @@ Steps:
 ### Prerequisities
 
 What things you need to install the software and how to install them
-
+[Install Play](https://www.playframework.com/documentation/2.5.x/Installing)
 ```
 > Play 2.1.5 ( we will use activator version of the play for this) 
 ```
-[Install Play](https://www.playframework.com/documentation/2.5.x/Installing)
+[Install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 ```
 > Any version of Git
 ```
-[Install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+[Setting up your preffered IDE for play](https://www.playframework.com/documentation/2.5.x/IDE)
 ```
 > for further developmnet configure any IDE of your choice wiht Scala/Java plugins 
 ```
-[Setting up your preffered IDE for play](https://www.playframework.com/documentation/2.5.x/IDE)
 ---
 ## Directory structure
 and important files
