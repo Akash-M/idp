@@ -2,11 +2,6 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-# Home page
-GET     /                                                @controllers.Application.home()
-# carousel Page
-GET     /carousel                                        @controllers.Application.carousel()
-
 GET     /api/v1/getCarouselDetailsById/:id               @controllers.Application.getCarouselDetailsById(id: Int)
 GET     /api/v1/centralStorage                           @controllers.Application.getCentralStorage
 GET     /api/v1/getCarouselsList                         @controllers.Application.getCarouselList
