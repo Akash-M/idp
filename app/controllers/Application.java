@@ -54,14 +54,6 @@ public class Application extends Controller {
     @Inject
     private  EvtWorkerStartToHandleService evtWorkerStartToHandleService;
 
-
-
-    public Result home() {
-        return ok(views.html.home.render());
-    }
-
-    public Result carousel() { return ok(views.html.carousel.render());}
-
     public Result getCentralStorage() {
         List<CentralStorage> cs = csService.getCSCapacities();
         JsonNode csJson = Json.toJson(cs);
@@ -188,10 +180,9 @@ public class Application extends Controller {
             for(Iterator<EvtBaggageArrival> j = evtBaggageArrivalList.iterator(); j.hasNext();){
                 EvtBaggageArrival evtBaggageArrival = j.next();
                 BasicBSONObject bsonObject2 = new BasicBSONObject();
-                totalBagsAtATime += evtBaggageArrival.getBags();
                 bsonObject2.put("time", evtBaggageArrival.getTime() );
                 bsonObject2.put("name", "BA");
-                bsonObject2.put("bags", totalBagsAtATime);
+                bsonObject2.put("bags", evtBaggageArrival.getBags());
                 bsonObjectList.add(bsonObject2);
             }
 
