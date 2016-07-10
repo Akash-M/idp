@@ -69,7 +69,7 @@ public class Application extends Controller {
 
         Carousel carousel = carouselService.findById(id);
         JsonNode carouselJson = Json.toJson(carousel);
-        JsonNode flightsNode = carouselService.getFlightList(id);
+        /*JsonNode flightsNode = carouselService.getFlightList(id);
 
         int flightIdAtFirstIndexOfFlightList = flightsNode.get(0).asInt();
         JsonNode workerNodes = flightService.getWorkersList(flightIdAtFirstIndexOfFlightList);
@@ -78,12 +78,13 @@ public class Application extends Controller {
         int groundHandlerId = workerService.getGroundHandlerId(workerIdAtFirstIndexOfWorkerList);
         String groundHandlerName = groundHandlerService.getGroundHandlerNameById(groundHandlerId);
 
-        int workingStationsCount = carouselService.countWorkStations(id);
+        int workingStationsCount = carousel.getWorkStations();
         ObjectNode carouselObjectNodeForMerging = ((ObjectNode) carouselJson);
         carouselObjectNodeForMerging = carouselObjectNodeForMerging.put("No_of_Workers", workingStationsCount);
-        carouselObjectNodeForMerging = carouselObjectNodeForMerging.put("Ground_Handler_Name", groundHandlerName);
+        carouselObjectNodeForMerging = carouselObjectNodeForMerging.put("Ground_Handler_Name", groundHandlerName);*/
 
-        return ok(carouselObjectNodeForMerging);
+        /*return ok(carouselObjectNodeForMerging);*/
+        return ok(carouselJson);
     }
 
     public Result getFlightList(){
@@ -133,7 +134,6 @@ public class Application extends Controller {
          * SH : Start Handling
          * WH : Worker Start To Handle
          * SD : Storage Depletion
-         * WA : Worker Allocation
          * BA : Baggage Arrival
          * EH : End Handling
          */

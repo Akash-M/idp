@@ -2,6 +2,7 @@ package models;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.List;
 
@@ -12,7 +13,8 @@ import java.util.List;
 public class Carousel {
 
     @Id
-    private Integer _id;
+    @Field("_id")
+    private Integer id;
 
     private Integer xCoordinate;
     private Integer yCoordinate;
@@ -23,11 +25,11 @@ public class Carousel {
     private Integer workStations;
 
     public Integer getId() {
-        return _id ;
+        return id ;
     }
 
     public void setId(Integer id) {
-         this._id = id;
+         this.id = id;
     }
 
     public Integer getxCoordinate() {
